@@ -36,7 +36,7 @@ const socials = [
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -54,8 +54,8 @@ function Navbar() {
   };
 
   const handleNav = (newurl) => {
-    navigate(newurl)
-  }
+    navigate(newurl);
+  };
 
   return (
     <AppBar sx={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }} position="fixed">
@@ -157,19 +157,24 @@ function Navbar() {
               Idris Ay
             </Typography>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center",
+            }}
+          >
             {pages.map((page) => (
-              <NavLink key={page.name} to={page.link} sx={{}}>
+              <Box as={NavLink} key={page.name} to={page.link} sx={{mx:4}}>
                 <Typography
                   sx={{
-                    margin: "5px 10px 0px 0px",
                     color: "white",
                     fontSize: "1.25rem",
                   }}
                 >
                   {page.name}
                 </Typography>
-              </NavLink>
+              </Box>
             ))}
           </Box>
 
@@ -209,7 +214,7 @@ function Navbar() {
                 </Box>
               ))}
             </Toolbar>
-            <Box sx={{ display: { xs: "block", md: "none" } }}>
+            <Box sx={{ display: { xs: "block", md: "none" }, mt: 2, mr: 2 }}>
               <Tooltip title="Social Accounts">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src={profileImage} />
