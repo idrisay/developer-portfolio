@@ -8,22 +8,35 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import CastForEducationSharpIcon from "@mui/icons-material/CastForEducationSharp";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import WebhookIcon from "@mui/icons-material/Webhook";
+import profileImage from "../assets/profile.jpeg";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const pages = [
   { name: "About", link: "about" },
   { name: "Projects", link: "projects" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const socials = [
+  {
+    name: "Linkedin",
+    url: "https://www.linkedin.com/in/idris-ay/",
+    icon: <LinkedInIcon sx={{ color: "inherit" }} />,
+  },
+  {
+    name: "Github",
+    url: "https://github.com/idrisay",
+    icon: <GitHubIcon sx={{ color: "inherit" }} />,
+  },
+];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,13 +53,20 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const handleNav = (newurl) => {
+    navigate(newurl)
+  }
+
   return (
     <AppBar sx={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }} position="fixed">
       <Container maxWidth="xl">
         <Toolbar sx={{ color: "white" }} disableGutters>
-          <NavLink to={"/"} >
-            <CastForEducationSharpIcon
-              sx={{ display: { xs: "none", md: "flex", color: 'white' }, mr: 1 }}
+          <NavLink to={"/"}>
+            <WebhookIcon
+              sx={{
+                display: { xs: "none", md: "flex", color: "white" },
+                mr: 1,
+              }}
             />
           </NavLink>
           <NavLink to={"/"}>
@@ -97,61 +117,116 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page.name}
+                  onClick={() => {
+                    handleNav(page.link);
+                    handleCloseNavMenu();
+                  }}
+                >
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+          <Box
+            // containerelement={<NavLink to={"/"} />}
+            // component={NavLink}
+            as={NavLink}
+            to="/"
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: { xs: "flex", md: "none" },
+              alignItems: "center",
             }}
           >
-            LOGO
-          </Typography>
+            <WebhookIcon sx={{ mr: 1, color: "white" }} />
+            <Typography
+              variant="h5"
+              noWrap
+              sx={{
+                mr: 2,
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              Idris Ay
+            </Typography>
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <NavLink
-                key={page.name}
-                to={page.link}
-                sx={{ textDecoration: "none !important" }}
-              >
-                <Button
-                  onClick={handleCloseNavMenu}
+              <NavLink key={page.name} to={page.link} sx={{}}>
+                <Typography
                   sx={{
-                    my: 2,
+                    margin: "5px 10px 0px 0px",
                     color: "white",
-                    display: "block",
-                    textDecoration: "none !important",
+                    fontSize: "1.25rem",
                   }}
                 >
                   {page.name}
-                </Button>
+                </Typography>
               </NavLink>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+          <Box
+            sx={{
+              flexGrow: 0,
+              display: "flex",
+            }}
+          >
+            <Toolbar sx={{ display: { xs: "none", md: "flex" } }}>
+              {socials.map((item) => (
+                <Box
+                  key={item.name}
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    margin: "10px",
+                  }}
+                >
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    sx={{ textDecoration: "none" }}
+                    href={item.url}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        color: "white",
+                      }}
+                    >
+                      {item.icon}
+                    </Box>
+                  </a>
+                </Box>
+              ))}
+            </Toolbar>
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+              <Tooltip title="Social Accounts">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src={profileImage} />
+                </IconButton>
+              </Tooltip>
+            </Box>
+            <IconButton
+              sx={{
+                p: 0,
+                display: { xs: "none", md: "block", cursor: "default" },
+              }}
+              onClick={handleOpenUserMenu}
+            >
+              <Avatar alt="Remy Sharp" src={profileImage} />
+            </IconButton>
             <Menu
-              sx={{ mt: "45px" }}
+              sx={{ mt: "45px", display: { xs: "block", md: "none" } }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -166,10 +241,21 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  target="_blank"
+                  rel="noreferrer"
+                  href={social.url}
+                >
+                  <MenuItem
+                    sx={{ color: "black" }}
+                    onClick={handleCloseUserMenu}
+                  >
+                    <Box sx={{ margin: "3px 5px 0px 0px" }}>{social.icon}</Box>
+                    <Typography textAlign="center">{social.name}</Typography>
+                  </MenuItem>
+                </a>
               ))}
             </Menu>
           </Box>
