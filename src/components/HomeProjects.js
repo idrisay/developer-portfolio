@@ -40,7 +40,7 @@ const HomeProjects = () => {
       </Typography>
       <Grid container rowSpacing={1}>
         {projetcList?.map((project) => (
-        <Grid item xs={12} md={6}>
+        <Grid key={project.id} item xs={12} md={6}>
           <ProjectCard project={project} />
         </Grid>
         ))}
