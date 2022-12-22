@@ -35,9 +35,9 @@ const Footer = () => {
               fontWeight: "bold",
               color: "inherit",
             }}
-            href="mailto:idrisayyildiz24@gmail.com"
+            href={`mailto:${process.env.REACT_APP_EMAIL}?subject=About website`}
           >
-            Email: idrisayyildiz24@gmail.com
+            Email: { process.env.REACT_APP_EMAIL }
           </Link>
           <Box sx={{ display: "flex" }}>
             {socials.map((item) => (

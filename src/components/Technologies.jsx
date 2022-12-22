@@ -20,7 +20,7 @@ const Technologies = () => {
   }));
   return (
     <Box>
-      <Typography variant="h4"  component="h2" sx={{ mt: 10, mx: -4, mb: 3 }}>
+      <Typography variant="h4"  component="h2" sx={{ mt: 10, mb: 3 }}>
         Technologies
       </Typography>
       <Box>
