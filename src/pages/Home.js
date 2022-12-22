@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
+import AboutMe from "../components/AboutMe";
 import Banner from "../components/Banner";
 import HomeProjects from "../components/HomeProjects";
 
@@ -10,9 +11,8 @@ const Home = () => {
     <Box>
       <Banner />
       <HomeProjects />
-      <div style={{ width: "900px", margin: "auto"  }}>
-        <Technologies />
-      </div>
+      <Technologies />
+      <AboutMe/>
     </Box>
   );
 };
