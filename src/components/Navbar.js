@@ -83,7 +83,7 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              Idris Ay
+              { process.env.REACT_APP_NAME }
             </Typography>
           </NavLink>
 
@@ -154,7 +154,7 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              Idris Ay
+              { process.env.REACT_APP_NAME }
             </Typography>
           </Box>
           <Box
