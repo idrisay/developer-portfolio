@@ -4,7 +4,6 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import CheckIcon from "@mui/icons-material/Check";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 import { IoLogoJavascript } from "react-icons/io";
 import { RiReactjsLine } from "react-icons/ri";
