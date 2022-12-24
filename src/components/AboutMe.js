@@ -1,73 +1,71 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, Typography } from "@mui/material";
 
-const experiences = [
-  {
-    id: 1,
-    date: "Jan 2022",
-    info: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis minima nemo ratione quo non consequuntur deserunt quis voluptatem ex",
-  },
-  {
-    id: 2,
-    date: "Jun 2022",
-    info: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis minima nemo ratione quo non consequuntur deserunt quis voluptatem ex",
-  },
-  {
-    id: 3,
-    date: "Present",
-    info: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis minima nemo ratione quo non consequuntur deserunt quis voluptatem ex",
-  },
-];
-
-const AboutMe = () => {
+const AboutMe = ({experiences}) => {
   return (
-    <Box maxWidth="md" sx={{ margin: "auto" }}>
-      <Typography variant="h4" component="h2" sx={{ mt: 10, mb: 3 }}>
-        About Me
-      </Typography>
+    <Box
+      maxWidth={"md"}
+      sx={{ margin: "10px auto", display: "flex", height: "100%" }}
+    >
       <Box
         sx={{
-          width: "80%",
-          height: "10px",
-          background: "white",
-          borderRadius: "50px",
-          margin: "auto",
-          marginTop: "50px",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "space-between",
-          position: "relative",
+          width: "300px",
         }}
       >
-        {experiences.map((item) => (
-          <Box
+        {experiences.map((exp) => (
+          <Typography
+            key={exp.id}
             sx={{
-              background: "white",
-              borderRadius: "50%",
-              marginTop: "-5px",
-              width: "20px",
-              height: "20px",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "end",
+              margin: '20px'
             }}
-            key={item.id}
           >
-            <Typography
-              sx={{
-                position: "absolute",
-                top: "-30px",
-                width: "70px",
-                marginLeft: "-35px",
-              }}
-              textAlign='center'
-            >
-              {item.date}
-            </Typography>
-          </Box>
+            {exp.date}
+          </Typography>
         ))}
       </Box>
-      <Box sx={{ display: "flex", m: "10px 20px", gap: "1rem" }}>
-        {experiences.map((item) => (
-          <Typography key={item.id} align="center">
-            {item.info}
-          </Typography>
+      <Box
+        sx={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(186,186,186,1) 10%, rgba(255,252,252,1) 50%, rgba(186,186,186,1) 90%, rgba(0,0,0,1) 100%)",
+          width: "10px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
+        {experiences.map((exp) => (
+          <Box
+            key={exp.id}
+            sx={{ width: 20, height: 20, borderRadius: 5, background: "white" }}
+          />
+        ))}
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          margin: "0px 20px",
+        }}
+      >
+        {experiences.map((exp) => (
+          <Box
+            key={exp.id}
+            sx={{ height: `${100/experiences.length}%`, display: 'flex', alignItems: 'center'}}
+          >
+            <Typography sx={{
+              padding: '20px 0px'
+            }}>
+            {exp.info}
+            </Typography>
+          </Box>
         ))}
       </Box>
     </Box>
