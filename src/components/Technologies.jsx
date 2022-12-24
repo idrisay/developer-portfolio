@@ -4,11 +4,17 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import JavascriptIcon from "@mui/icons-material/Javascript";
 import { IoLogoJavascript } from "react-icons/io";
 import { RiReactjsLine } from "react-icons/ri";
 import { ImHtmlFive2 } from "react-icons/im";
+import { DiCss3 } from "react-icons/di";
+import { SiMaterialui } from "react-icons/si";
+import { BiGitBranch } from "react-icons/bi";
+import { AiOutlineGithub } from "react-icons/ai";
 import { SiTailwindcss } from "react-icons/si";
+import { DiSass } from "react-icons/di";
+import { BsFillBootstrapFill } from "react-icons/bs";
+
 
 const techs = [
   {
@@ -37,35 +43,35 @@ const techs = [
     name: "CSS",
     level: "Advanced",
     percentage: 80,
-    icon: <JavascriptIcon fontSize="large" />,
+    icon: <DiCss3 fontSize="large" />,
   },
   {
     id: 5,
     name: "Material UI",
     level: "Advanced",
     percentage: 80,
-    icon: <JavascriptIcon fontSize="large" />,
+    icon: <SiMaterialui fontSize="large" />,
   },
   {
     id: 6,
     name: "Git",
     level: "Regular",
     percentage: 60,
-    icon: <JavascriptIcon fontSize="large" />,
+    icon: <BiGitBranch fontSize="large" />,
   },
   {
     id: 7,
     name: "GitHub",
     level: "Regular",
     percentage: 60,
-    icon: <JavascriptIcon fontSize="large" />,
+    icon: <AiOutlineGithub fontSize="large" />,
   },
 ];
 
 const additionaltechs = [
   { id: 1, name: "TailwindCSS", icon: <SiTailwindcss fontSize="large" /> },
-  { id: 2, name: "SCSS", icon: <SiTailwindcss fontSize="large" /> },
-  { id: 3, name: "Bootstrap", icon: <SiTailwindcss fontSize="large" /> },
+  { id: 2, name: "SCSS", icon: <DiSass fontSize="large" /> },
+  { id: 3, name: "Bootstrap", icon: <BsFillBootstrapFill fontSize="large" /> },
 ];
 
 const Technologies = () => {
@@ -110,7 +116,7 @@ const Technologies = () => {
       <Typography variant="h4" component="h2" sx={{ mt: 10, mb: 3 }}>
         Additional technologies and skills
       </Typography>
-      <Box sx={{mt: 10, maxWidth: "90%", margin: "auto"}}>
+      <Box sx={{ mt: 10, maxWidth: "90%", margin: "auto" }}>
         <Grid
           container
           sx={{ my: 2, mx: 2 }}
@@ -124,7 +130,11 @@ const Technologies = () => {
               sm={4}
               md={4}
               key={item.id}
-              sx={{ display: "flex", alignItems: "center", justifyContent:'center' }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <Box sx={{ width: "28px" }}>{item.icon}</Box>
               <Typography>{item.name}</Typography>
