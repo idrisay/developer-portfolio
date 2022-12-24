@@ -17,8 +17,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 const pages = [
-  { name: "About", link: "about" },
-  { name: "Projects", link: "projects" },
+  { name: "Projects", link: "#projects" },
+  { name: "About", link: "#about" },
 ];
 const socials = [
   {
@@ -69,7 +69,7 @@ function Navbar() {
               }}
             />
           </NavLink>
-          <NavLink to={"/"}>
+          <a href="#header">
             <Typography
               variant="h6"
               noWrap
@@ -83,9 +83,9 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              { process.env.REACT_APP_NAME }
+              {process.env.REACT_APP_NAME}
             </Typography>
-          </NavLink>
+          </a>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -118,9 +118,10 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem
+                  as="a"
+                  href={page.link}
                   key={page.name}
                   onClick={() => {
-                    handleNav(page.link);
                     handleCloseNavMenu();
                   }}
                 >
@@ -154,7 +155,7 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              { process.env.REACT_APP_NAME }
+              {process.env.REACT_APP_NAME}
             </Typography>
           </Box>
           <Box
@@ -165,7 +166,7 @@ function Navbar() {
             }}
           >
             {pages.map((page) => (
-              <Box as={NavLink} key={page.name} to={page.link} sx={{mx:4}}>
+              <Box as='a' key={page.name} href={page.link} sx={{ mx: 4 }}>
                 <Typography
                   sx={{
                     color: "white",

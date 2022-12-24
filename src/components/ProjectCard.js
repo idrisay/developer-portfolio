@@ -7,7 +7,9 @@ import GradientLinkButton from "./GradientLinkButton";
 const ProjectCard = ({ project }) => {
   return (
     <Paper
+    id='projects'
       sx={{
+        scrollMarginTop: '175px',
         backgroundColor: "#1A2027",
         color: "white",
         p: 2,
