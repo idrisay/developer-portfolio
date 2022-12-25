@@ -3,6 +3,7 @@ import React from "react";
 import AboutMe from "../components/AboutMe";
 import Banner from "../components/Banner";
 import HomeProjects from "../components/HomeProjects";
+import ImageSlider from "../components/ImageSlider";
 import Technologies from "../components/Technologies";
 
 
@@ -32,6 +33,7 @@ const experiences = [
 const Home = () => {
   return (
     <Box>
+      {/* <ImageSlider /> */}
       <Banner />
       <HomeProjects />
       <Technologies />
