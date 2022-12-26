@@ -14,22 +14,17 @@ const projetcList = [
     images : [
       {
      
-        url: "https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        url: "https://github.com/idrisay/developer-portfolio/raw/master/project-view-1.png",
         title: "beach",
       },
       {
        
-        url: blogify,
-        title: "boat",
-      },
-      {
-       
-        url: "https://images.unsplash.com/photo-1543877087-ebf71fde2be1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG5hdHVyYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
+        url: "https://github.com/idrisay/developer-portfolio/raw/master/project-view-2.png",
         title: "forest",
       },
       {
         
-        url: "https://images.unsplash.com/photo-1431411207774-da3c7311b5e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        url: "https://github.com/idrisay/developer-portfolio/raw/master/project-view-3.png",
         title: "city",
       }
     ]
