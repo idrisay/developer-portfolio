@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import { NavLink, useNavigate } from "react-router-dom";
 import WebhookIcon from "@mui/icons-material/Webhook";
 import profileImage from "../assets/profile.jpeg";
@@ -117,16 +116,17 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem
+                <Box
                   as="a"
                   href={page.link}
+                  sx={{width: '100px', display: 'block', padding:1}}
                   key={page.name}
                   onClick={() => {
                     handleCloseNavMenu();
                   }}
                 >
                   <Typography textAlign="center">{page.name}</Typography>
-                </MenuItem>
+                </Box>
               ))}
             </Menu>
           </Box>
@@ -254,13 +254,13 @@ function Navbar() {
                   rel="noreferrer"
                   href={social.url}
                 >
-                  <MenuItem
-                    sx={{ color: "black" }}
+                  <Box
+                    sx={{ color: "black", display: 'flex', padding: 1 }}
                     onClick={handleCloseUserMenu}
                   >
                     <Box sx={{ margin: "3px 5px 0px 0px" }}>{social.icon}</Box>
                     <Typography textAlign="center">{social.name}</Typography>
-                  </MenuItem>
+                  </Box>
                 </a>
               ))}
             </Menu>
