@@ -1,20 +1,11 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { db } from "../utils/firebase";
-import { onValue, ref } from "firebase/database";
+
 
 const Admin = () => {
-  const [infos, setInfos] = useState(null);
+ 
 
-  useEffect(() => {
-    const query = ref(db, "infos");
-    return onValue(query, (snapshot) => {
-      let data = snapshot.val();
-      data = Object.values(data);
-      console.log(data[0]);
-      setInfos(infos);
-    });
-  }, []);
+
 
   useEffect(() => {
     console.log("19");
@@ -33,7 +24,7 @@ const Admin = () => {
           margin: "auto",
         }}
       >
-        <Typography variant="h3">Navbar</Typography>{infos?.brand}
+        <Typography variant="h3">Navbar</Typography>
         <TextField
           size="small"
           id="outlined-basic"
