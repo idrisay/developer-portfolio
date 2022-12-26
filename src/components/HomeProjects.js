@@ -10,28 +10,90 @@ const projetcList = [
     name: "Blogify",
     info: "Blogify Info ",
     link: "https://github.com/idrisay/blogify",
-    img: blogify
+    img: blogify,
+    images : [
+      {
+     
+        url: "https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        title: "beach",
+      },
+      {
+       
+        url: blogify,
+        title: "boat",
+      },
+      {
+       
+        url: "https://images.unsplash.com/photo-1543877087-ebf71fde2be1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG5hdHVyYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
+        title: "forest",
+      },
+      {
+        
+        url: "https://images.unsplash.com/photo-1431411207774-da3c7311b5e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        title: "city",
+      }
+    ]
   },
   {
     id: 2,
     name: "Exchange App",
     info: "Exchange App Info",
     link: "https://github.com/idrisay/exchange-app",
-    img: blogify
+    img: blogify,
+    images : [
+      {
+       
+        url: blogify,
+        title: "boat",
+      },
+      {
+       
+        url: "https://images.unsplash.com/photo-1543877087-ebf71fde2be1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG5hdHVyYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
+        title: "forest",
+      },
+      {
+       
+        url: "https://images.unsplash.com/photo-1431411207774-da3c7311b5e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        title: "city",
+      },
+      {
+       
+        url: "https://images.unsplash.com/photo-1539667468225-eebb663053e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1634&q=80",
+        title: "italy",
+      },
+    ]
   },
   {
     id: 3,
     name: "Movie App",
     info: "Movie App Info",
     link: "https://github.com/idrisay/react-movie-app",
-    img: blogify
+    img: blogify,
+    images : [
+      {
+        
+        url: "https://images.unsplash.com/photo-1431411207774-da3c7311b5e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        title: "city",
+      },
+      {
+        
+        url: "https://images.unsplash.com/photo-1539667468225-eebb663053e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1634&q=80",
+        title: "italy",
+      },
+    ]
   },
   {
     id: 4,
     name: "Todo App",
     info: "Todo App",
     link: "https://github.com/idrisay/todo-app",
-    img: blogify
+    img: blogify,
+    images : [
+      {
+        url: "https://images.unsplash.com/photo-1539667468225-eebb663053e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1634&q=80",
+        title: "italy",
+      },
+    ]
   },
 ];
 

@@ -1,14 +1,11 @@
 import { Box } from "@mui/system";
 import { useState } from "react";
 import CircleIcon from "@mui/icons-material/Circle";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-import BlurCircularIcon from "@mui/icons-material/BlurCircular";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import AdjustIcon from '@mui/icons-material/Adjust';
+import AdjustIcon from "@mui/icons-material/Adjust";
 
-const ImageSlider = ({images}) => {
+const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -32,52 +29,56 @@ const ImageSlider = ({images}) => {
         width: "90%",
         maxWidth: "750px",
         height: "300px",
-        margin: "0px auto"
+        margin: "0px auto",
       }}
     >
       <Box sx={{ position: "relative", height: "100%" }}>
-        <Box
-          onClick={goToPrevious}
-          sx={{
-            position: "absolute",
-            top: "50%",
-            transform: "translate(0, -50%)",
-            left: "32px",
-            zIndex: 2,
-            cursor: "pointer",
-          }}
-        >
-          <ArrowBackIosNewIcon
-            sx={{
-              background: "black",
-              borderRadius: "50%",
-              padding: "8px",
-              opacity: "0.5",
-            }}
-            fontSize="large"
-          />
-        </Box>
-        <Box
-          onClick={goToNext}
-          sx={{
-            position: "absolute",
-            top: "50%",
-            transform: "translate(0, -50%)",
-            right: "32px",
-            zIndex: 2,
-            cursor: "pointer",
-          }}
-        >
-          <ArrowForwardIosIcon
-            sx={{
-              background: "black",
-              borderRadius: "50%",
-              padding: "8px",
-              opacity: "0.5",
-            }}
-            fontSize="large"
-          />
-        </Box>
+        {images.length > 1 && (
+          <Box>
+            <Box
+              onClick={goToPrevious}
+              sx={{
+                position: "absolute",
+                top: "50%",
+                transform: "translate(0, -50%)",
+                left: "32px",
+                zIndex: 0,
+                cursor: "pointer",
+              }}
+            >
+              <ArrowBackIosNewIcon
+                sx={{
+                  background: "black",
+                  borderRadius: "50%",
+                  padding: "8px",
+                  opacity: "0.5",
+                }}
+                fontSize="large"
+              />
+            </Box>
+            <Box
+              onClick={goToNext}
+              sx={{
+                position: "absolute",
+                top: "50%",
+                transform: "translate(0, -50%)",
+                right: "32px",
+                zIndex: 2,
+                cursor: "pointer",
+              }}
+            >
+              <ArrowForwardIosIcon
+                sx={{
+                  background: "black",
+                  borderRadius: "50%",
+                  padding: "8px",
+                  opacity: "0.5",
+                }}
+                fontSize="large"
+              />
+            </Box>
+          </Box>
+        )}
         <Box sx={{ height: "100%" }}>
           <Box
             sx={{
@@ -87,7 +88,7 @@ const ImageSlider = ({images}) => {
               borderRadius: "10px",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              transition: 'background-image 0.5s ease-in-out'
+              transition: "all 0.5s ease-in-out",
             }}
           ></Box>
         </Box>
@@ -101,11 +102,28 @@ const ImageSlider = ({images}) => {
             // background: 'rgba(0, 0, 0, 0.2);'
           }}
         >
-          {images.map((item) => (
-            <Box sx={{ margin: "10px 10px 0px", background: 'rgba(0, 0, 0, 0.1);', borderRadius: '50%', padding: '5px 5px 0px' }}>
-              {item.id === currentIndex ? <AdjustIcon fontSize="small" /> : <CircleIcon fontSize="small" sx={{cursor: 'pointer'}} onClick={() => goToSlide(item.id)} />}
-            </Box>
-          ))}
+          {images.length > 1 &&
+            images.map((item, index) => (
+              <Box
+                key={item.url}
+                sx={{
+                  margin: "10px 10px 0px",
+                  background: "rgba(0, 0, 0, 0.1);",
+                  borderRadius: "50%",
+                  padding: "5px 5px 0px",
+                }}
+              >
+                {index === currentIndex ? (
+                  <AdjustIcon fontSize="small" />
+                ) : (
+                  <CircleIcon
+                    fontSize="small"
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => goToSlide(index)}
+                  />
+                )}
+              </Box>
+            ))}
         </Box>
       </Box>
     </Box>
