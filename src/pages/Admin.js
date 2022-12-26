@@ -3,15 +3,6 @@ import { useEffect, useState } from "react";
 
 
 const Admin = () => {
- 
-
-
-
-  useEffect(() => {
-    console.log("19");
-    console.log(infos);
-    console.log(infos?.brand);
-  }, [infos]);
 
   return (
     <Box sx={{ background: "white", color: "black", padding: "10px" }}>
@@ -30,7 +21,6 @@ const Admin = () => {
           id="outlined-basic"
           label="Brand"
           variant="outlined"
-          value={infos?.brand}
         />
         <Button sx={{ marginTop: "5px" }} variant="contained" color="success">
           Update
