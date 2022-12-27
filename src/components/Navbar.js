@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import WebhookIcon from "@mui/icons-material/Webhook";
 import profileImage from "../assets/profile.jpeg";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -35,7 +35,6 @@ const socials = [
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -50,10 +49,6 @@ function Navbar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
-
-  const handleNav = (newurl) => {
-    navigate(newurl);
   };
 
   return (
@@ -119,7 +114,7 @@ function Navbar() {
                 <Box
                   as="a"
                   href={page.link}
-                  sx={{width: '100px', display: 'block', padding:1}}
+                  sx={{width: '100px', display: 'block', padding:1, color:'black'}}
                   key={page.name}
                   onClick={() => {
                     handleCloseNavMenu();
@@ -255,7 +250,7 @@ function Navbar() {
                   href={social.url}
                 >
                   <Box
-                    sx={{ color: "black", display: 'flex', padding: 1 }}
+                    sx={{ color: "black", display: 'flex', padding: 1, alignItems: 'center' }}
                     onClick={handleCloseUserMenu}
                   >
                     <Box sx={{ margin: "3px 5px 0px 0px" }}>{social.icon}</Box>

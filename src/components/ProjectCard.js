@@ -1,10 +1,10 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
 import { Divider, Typography, Box } from "@mui/material";
-import CardMedia from "@mui/material/CardMedia";
+
 import GradientLinkButton from "./GradientLinkButton";
 import ImageSlider from "./ImageSlider";
-import blogify from "../assets/blogify.png";
+
 
 const ProjectCard = ({ project }) => {
   return (
