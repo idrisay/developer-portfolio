@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-const AboutMe = ({ experiences }) => {
+const AboutMe = ({ experiences = [] }) => {
   return (
     <Box maxWidth="md" sx={{ margin: "auto" }}>
       <Typography variant="h4" component="h2" sx={{ mt: 10, mb: 3 }}>
@@ -24,9 +24,9 @@ const AboutMe = ({ experiences }) => {
             width: "300px",
           }}
         >
-          {experiences.map((exp) => (
+          {experiences?.map((exp, index) => (
             <Typography
-              key={exp.id}
+              key={index}
               sx={{
                 height: "100%",
                 display: "flex",
@@ -50,9 +50,9 @@ const AboutMe = ({ experiences }) => {
             alignItems: "center",
           }}
         >
-          {experiences.map((exp) => (
+          {experiences.map((exp, ind) => (
             <Box
-              key={exp.id}
+              key={ind}
               sx={{
                 width: 20,
                 height: 20,
@@ -70,9 +70,9 @@ const AboutMe = ({ experiences }) => {
             margin: "0px 20px",
           }}
         >
-          {experiences.map((exp) => (
+          {experiences?.map((exp, i) => (
             <Box
-              key={exp.id}
+              key={i}
               sx={{
                 height: `${100 / experiences.length}%`,
                 display: "flex",
@@ -84,7 +84,7 @@ const AboutMe = ({ experiences }) => {
                   padding: "20px 0px",
                 }}
               >
-                {exp.info}
+                {exp.description}
               </Typography>
             </Box>
           ))}

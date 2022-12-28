@@ -1,10 +1,11 @@
 import { Box } from "@mui/material";
-import React from "react";
+import {useState, useEffect} from "react";
 import AboutMe from "../components/AboutMe";
 import Banner from "../components/Banner";
 import HomeProjects from "../components/HomeProjects";
-import ImageSlider from "../components/ImageSlider";
 import Technologies from "../components/Technologies";
+import { db } from "../utils/firebase";
+import { onValue, ref } from "firebase/database";
 
 
 const experiences = [
@@ -31,13 +32,26 @@ const experiences = [
 ];
 
 const Home = () => {
+  const [infos, setInfos] = useState()
+
+  useEffect(() => {
+    const query = ref(db, "infos");
+    return onValue(query, (snapshot) => {
+      let data = snapshot.val();
+      if (snapshot.exists()) {
+        setInfos(data);
+        console.log(data);
+      }
+    });
+  }, []);
+
   return (
     <Box>
       {/* <ImageSlider /> */}
       <Banner />
       <HomeProjects />
       <Technologies />
-      <AboutMe experiences={experiences}/>
+      <AboutMe experiences={infos?.aboutMe}/>
     </Box>
   );
 };

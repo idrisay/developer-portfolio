@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
 import { onValue, ref, update } from "firebase/database";
+
 const Admin = () => {
   const [infos, setInfos] = useState("asa");
   useEffect(() => {
