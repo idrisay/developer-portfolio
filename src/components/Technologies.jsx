@@ -15,66 +15,23 @@ import { SiTailwindcss } from "react-icons/si";
 import { DiSass } from "react-icons/di";
 import { BsFillBootstrapFill } from "react-icons/bs";
 
+const techIcons = {
+  Javascript: <IoLogoJavascript fontSize="large" />,
+  ReactJS: <RiReactjsLine fontSize="large" />,
+  HTML: <ImHtmlFive2 fontSize="large" />,
+  CSS: <DiCss3 fontSize="large" />,
+  Material: <SiMaterialui fontSize="large" />,
+  Git: <BiGitBranch fontSize="large" />,
+  GitHub: <AiOutlineGithub fontSize="large" />,
+  TailwindCSS: <SiTailwindcss fontSize="large" /> ,
+  SCSS: <DiSass fontSize="large" />,
+  Bootstrap: <BsFillBootstrapFill fontSize="large" />
 
-const techs = [
-  {
-    id: 1,
-    name: "Javascript",
-    level: "Advanced",
-    percentage: 80,
-    icon: <IoLogoJavascript fontSize="large" />,
-  },
-  {
-    id: 2,
-    name: "ReactJS",
-    level: "Advanced",
-    percentage: 80,
-    icon: <RiReactjsLine fontSize="large" />,
-  },
-  {
-    id: 3,
-    name: "HTML",
-    level: "Advanced",
-    percentage: 80,
-    icon: <ImHtmlFive2 fontSize="large" />,
-  },
-  {
-    id: 4,
-    name: "CSS",
-    level: "Advanced",
-    percentage: 80,
-    icon: <DiCss3 fontSize="large" />,
-  },
-  {
-    id: 5,
-    name: "Material UI",
-    level: "Advanced",
-    percentage: 80,
-    icon: <SiMaterialui fontSize="large" />,
-  },
-  {
-    id: 6,
-    name: "Git",
-    level: "Regular",
-    percentage: 60,
-    icon: <BiGitBranch fontSize="large" />,
-  },
-  {
-    id: 7,
-    name: "GitHub",
-    level: "Regular",
-    percentage: 60,
-    icon: <AiOutlineGithub fontSize="large" />,
-  },
-];
+};
 
-const additionaltechs = [
-  { id: 1, name: "TailwindCSS", icon: <SiTailwindcss fontSize="large" /> },
-  { id: 2, name: "SCSS", icon: <DiSass fontSize="large" /> },
-  { id: 3, name: "Bootstrap", icon: <BsFillBootstrapFill fontSize="large" /> },
-];
 
-const Technologies = () => {
+
+const Technologies = ({ techs = [], additionaltechs}) => {
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 20,
     borderRadius: 12,
@@ -87,31 +44,35 @@ const Technologies = () => {
         "linear-gradient(90deg, rgba(19,173,199,1) 0%, rgba(105,120,209,1) 60%, rgba(148,93,214,1) 100%)",
     },
   }));
+
+  console.log({additionaltechs})
+
   return (
     <Box maxWidth="md" sx={{ margin: "auto" }}>
       <Typography variant="h4" component="h2" sx={{ mt: 10, mb: 3 }}>
         Technologies
       </Typography>
       <Box sx={{ mt: 10, maxWidth: "90%", margin: "auto" }}>
-        {techs.map((item) => (
-          <Box key={item.id} my={2}>
-            <Box
-              sx={{ display: "flex", justifyContent: "space-between", mx: 2 }}
-            >
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Box sx={{ width: "20px" }}>{item.icon}</Box>
-                <Typography sx={{ ml: 2 }} variant="h5">
-                  {item.name}
-                </Typography>
+        {techs.length > 0 &&
+          techs?.map((item) => (
+            <Box key={item.name} my={2}>
+              <Box
+                sx={{ display: "flex", justifyContent: "space-between", mx: 2 }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <Box sx={{ width: "20px" }}>{techIcons[item.name]}</Box>
+                  <Typography sx={{ ml: 2 }} variant="h5">
+                    {item.name}
+                  </Typography>
+                </Box>
+                <Typography>{item.level}</Typography>
               </Box>
-              <Typography>{item.level}</Typography>
+              <BorderLinearProgress
+                variant="determinate"
+                value={item.percentage}
+              />
             </Box>
-            <BorderLinearProgress
-              variant="determinate"
-              value={item.percentage}
-            />
-          </Box>
-        ))}
+          ))}
       </Box>
       <Typography variant="h4" component="h2" sx={{ mt: 10, mb: 3 }}>
         Additional technologies and skills
@@ -123,20 +84,20 @@ const Technologies = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {additionaltechs.map((item) => (
+          {additionaltechs?.map((item) => (
             <Grid
               item
               xs={2}
               sm={4}
               md={4}
-              key={item.id}
+              key={item.name}
               sx={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Box sx={{ width: "28px" }}>{item.icon}</Box>
+              <Box sx={{ width: "28px" }}>{techIcons[item.name]}</Box>
               <Typography>{item.name}</Typography>
             </Grid>
           ))}
